@@ -10,8 +10,6 @@ const PollCreationForm = ({ handlePollCreated }) => {
   // State for managing the poll title
   const [pollTitle, setPollTitle] = useState("");
 
-  const baseURL = import.meta.env.VITE_BACKEND_REDIRECT_BASE_URL;
-
   // State for managing dynamic options
   const [options, setOptions] = useState([
     { id: 1, value: "", placeholder: "Taco Tuesday" },
@@ -85,7 +83,7 @@ const PollCreationForm = ({ handlePollCreated }) => {
     createPoll(pollData, {
       onSuccess: (newPollData) => {
         toast.success("Poll created successfully!");
-        handlePollCreated(baseURL + "/" + newPollData.shareableUrl); // Pass the shareable URL up
+        handlePollCreated(newPollData.shareableUrl); // Pass the shareable URL up
       },
       onError: (error) => {
         toast.error(`Error: ${error.message}`);
