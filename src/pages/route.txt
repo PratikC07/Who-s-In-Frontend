@@ -1,0 +1,69 @@
+<Routes>
+        {/* ===================================================================== */}
+        {/* PUBLIC ONLY ROUTES (Users are redirected away if logged in) */}
+        {/* ===================================================================== */}
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <SignupPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+
+        {/* ===================================================================== */}
+        {/* PRIVATE ONLY ROUTES (Users must be logged in to access) */}
+        {/* ===================================================================== */}
+
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/poll-creation"
+          element={
+            <PrivateRoute>
+              <PollCreationPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+
+        {/* ===================================================================== */}
+        {/* SHARED ROUTES (Accessible to EVERYONE, logged in or not) */}
+        {/* ===================================================================== */}
+
+        <Route path="/vote/:id" element={<VotePage />} />
+        <Route path="/poll-result/:id" element={<PollResultPage />} />
+        <Route path="/poll-result-closed/:id" element={<PollResultPage2 />} />
+      </Routes>
