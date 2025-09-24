@@ -57,7 +57,7 @@ const DashboardPage = () => {
           <Header />
           <div className="px-4 sm:px-6 md:px-10 lg:px-20 flex flex-1 justify-center py-6 lg:py-10">
             <div className="layout-content-container flex flex-col w-full max-w-7xl">
-              <FirstSection />
+              <FirstSection pollLength={polls?.length} />
               {polls && polls.length > 0 ? (
                 <PollList polls={polls} />
               ) : (

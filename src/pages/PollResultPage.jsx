@@ -110,7 +110,8 @@ export const PollResultPage = () => {
           <Header />
           {isOpen && <Backdrop onClick={() => setIsOpen(false)} />}
           <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 mt-6 flex justify-between items-center">
-            {isOwner && <BackButton />}
+            {isOwner ? <BackButton /> : <div />}
+            {/* Render BackButton or an empty placeholder */}
             <ShareButton shareLink={pollResults?.shareCode} />
           </div>
 
